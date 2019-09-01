@@ -144,6 +144,10 @@
             label[1] = {{searchMeth2 | tojson}};
             parameters[0] = {{ max | tojson}};
             parameters[1] = {{ key | tojson }};
+
+            if(parameters[0] == -1 && parameters[1] == -1){
+                alert('O valor da chave tem que ser menor que o valor máximo do array');
+            }
         
 
             document.getElementById('Params1').innerHTML = label[0] + ": " + data[0];

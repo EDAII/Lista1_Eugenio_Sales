@@ -27,11 +27,20 @@ def index():
         searchMeth1 = forms['first']
         searchMeth2 = forms['second']
 
+        if key>max:
+            key = -1
+            max = -1
+            value = [-1,-1]
+            return render_template("index.html", value=json.dumps(value), searchMeth1=searchMeth1, searchMeth2=searchMeth2, max=json.dumps(max), key=json.dumps(key))
+
+
         steps1 = switch_method(forms['first'], max, key)
         steps2 = switch_method(forms['second'], max, key)
         
         value.append(steps1)
         value.append(steps2)
+
+        
 
         return render_template("index.html", value=json.dumps(value), searchMeth1=searchMeth1, searchMeth2=searchMeth2, max=json.dumps(max), key=json.dumps(key))
     

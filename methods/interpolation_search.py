@@ -8,8 +8,9 @@ def interpolation_search(key, array):
         
         counter+=1
         
-        mid = lim_inf + ((lim_sup - lim_inf) * ((key - array[lim_inf]) // (array[lim_sup] - array[lim_inf])))
-
+        mid = int(lim_inf + (((lim_sup - lim_inf)/(array[lim_sup] - array[lim_inf])) * (key - array[lim_inf])))
+        
+        
         if key == array[mid]:
             return counter
         elif key > array[mid]:
@@ -18,4 +19,3 @@ def interpolation_search(key, array):
             lim_sup = mid - 1
         
         return (-1)
-    
